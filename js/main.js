@@ -1,10 +1,14 @@
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
+
+    initFlashScreen();
+    initSkipFlashScreen();
     initTypedAnimation();
     initParticleBackground();
     initMobileMenu();
     initSmoothScroll();
     initActiveNavOnScroll();
+    initInteractiveSkills();
 
     // Initialize EmailJS first
     initEmailJS();
@@ -23,19 +27,19 @@ function initTypedAnimation() {
     if (typeof Typed !== 'undefined') {
         new Typed('#typed-element', {
             strings: [
-                'Blockchain & Backend Developer',
-                'Java & DSA Enthusiast',
-                'IoT Engineering Student',
-                'Smart Contract Developer',
-                'Decentralized App Builder'
+                '{Blockchain and Backend',
+                '{Java and DSA Enthusiast',
+                '{IoT Engineering Student',
+                '{Smart Contract Developer',
+                '{Decentralized App Builder'
             ],
-            typeSpeed: 60,
-            backSpeed: 40,
+            typeSpeed: 30,
+            backSpeed: 20,
             backDelay: 1500,
             startDelay: 500,
             loop: true,
             showCursor: true,
-            cursorChar: '|',
+            cursorChar: '}',
             autoInsertCss: true
         });
     }
@@ -441,73 +445,39 @@ function initInteractiveSkills() {
 
     if (!skillItems.length || !skillNameEl || !skillDescEl) return;
 
-    // Default message
-    const defaultName = 'Explore My Skills';
-    const defaultDesc = 'Hover over or click on any skill above to see detailed information about my experience and expertise.';
-
-    // Function to update description
     function updateSkillDescription(skillItem) {
-        const skillName = skillItem.textContent.trim();
-        const skillDesc = skillItem.getAttribute('data-description') || 'No description available for this skill.';
+        // Sirf data-skillName aur data-skillDesc use karo
+        const skillName = skillItem.getAttribute('data-skillName') || skillItem.textContent.trim();
+        const skillDesc = skillItem.getAttribute('data-skillDesc') || 'No description available.';
 
-        // Add icon based on skill category
         const icon = skillItem.querySelector('i') ? skillItem.querySelector('i').outerHTML : '<i class="fas fa-code"></i>';
 
         skillNameEl.innerHTML = `${icon} ${skillName}`;
         skillDescEl.textContent = skillDesc;
 
-        // Add animation class
         panel.classList.add('updated');
-        setTimeout(() => {
-            panel.classList.remove('updated');
-        }, 600);
+        setTimeout(() => panel.classList.remove('updated'), 600);
 
-        // Remove active class from all skills
-        skillItems.forEach(item => {
-            item.classList.remove('active-skill');
-        });
-
-        // Add active class to current skill
+        skillItems.forEach(item => item.classList.remove('active-skill'));
         skillItem.classList.add('active-skill');
     }
 
-    // Add hover events
+    // Click events
     skillItems.forEach(item => {
-        // Hover events
-        item.addEventListener('mouseenter', function() {
-            updateSkillDescription(this);
-        });
-
-        // Click events (for mobile or users who prefer clicking)
         item.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent event bubbling
+            e.stopPropagation();
             updateSkillDescription(this);
         });
     });
 
-    // Reset when clicking outside
+    // Reset on outside click
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.interactive-skill') && !e.target.closest('#skillDescriptionPanel')) {
-            // Reset to default
-            skillNameEl.innerHTML = `<i class="fas fa-lightbulb"></i> ${defaultName}`;
-            skillDescEl.textContent = defaultDesc;
-
-            // Remove all active classes
-            skillItems.forEach(item => {
-                item.classList.remove('active-skill');
-            });
+            skillNameEl.innerHTML = '<i class="fas fa-lightbulb"></i> Explore My Skills';
+            skillDescEl.textContent = 'Click on any skill to see detailed information about my experience and expertise.';
+            skillItems.forEach(item => item.classList.remove('active-skill'));
         }
     });
-
-    // Add touch support for mobile
-    if ('ontouchstart' in window) {
-        skillItems.forEach(item => {
-            item.addEventListener('touchstart', function(e) {
-                e.preventDefault();
-                updateSkillDescription(this);
-            });
-        });
-    }
 }
 
 // ===== CLICK ANIMATION - CIRCLE POPUP =====
@@ -571,5 +541,78 @@ function initClickAnimation() {
                 circle.remove();
             }
         }, 500);
+    });
+}
+
+// ===== PROFESSIONAL FLASH SCREEN =====
+function initFlashScreen() {
+    const flashScreen = document.getElementById('flashScreen');
+    const statusElement = document.getElementById('flashStatus');
+    const percentElement = document.getElementById('progressPercent');
+
+    if (!flashScreen) return;
+
+    // Status messages array
+    const statusMessages = [
+        { text: "Loading modules...", icon: "fa-cube" },
+        { text: "Initializing blockchain...", icon: "fa-link" },
+        { text: "Connecting to backend...", icon: "fa-database" },
+        { text: "Optimizing performance...", icon: "fa-tachometer-alt" },
+        { text: "Ready to launch!", icon: "fa-rocket" }
+    ];
+
+    let currentIndex = 0;
+    let progress = 0;
+
+    // Update status message every 500ms
+    const statusInterval = setInterval(() => {
+        if (currentIndex < statusMessages.length) {
+            const msg = statusMessages[currentIndex];
+            statusElement.innerHTML = `<i class="fas ${msg.icon}"></i><span>${msg.text}</span>`;
+            currentIndex++;
+        }
+    }, 500);
+
+    // Update progress percentage
+    const progressInterval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(progressInterval);
+            clearInterval(statusInterval);
+
+            // Final status
+            statusElement.innerHTML = '<i class="fas fa-check-circle"></i><span>Ready to go!</span>';
+        }
+
+        if (percentElement) {
+            percentElement.textContent = Math.floor(progress) + '%';
+        }
+    }, 150);
+
+    // Hide flash screen after 3 seconds
+    setTimeout(() => {
+        flashScreen.classList.add('fade-out');
+
+        setTimeout(() => {
+            if (flashScreen.parentNode) {
+                flashScreen.remove();
+            }
+        }, 600);
+    }, 3000);
+}
+
+// Add click to skip flash screen
+function initSkipFlashScreen() {
+    const flashScreen = document.getElementById('flashScreen');
+    if (!flashScreen) return;
+
+    flashScreen.addEventListener('click', function() {
+        this.classList.add('fade-out');
+        setTimeout(() => {
+            if (this.parentNode) {
+                this.remove();
+            }
+        }, 600);
     });
 }
