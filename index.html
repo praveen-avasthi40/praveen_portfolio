@@ -14,6 +14,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<!-- Professional App-Style Flash Screen -->
+<div id="flashScreen" class="flash-screen">
+    <div class="flash-container">
+        <!-- Animated Background -->
+        <div class="flash-bg">
+            <div class="flash-bg-shape shape-1"></div>
+            <div class="flash-bg-shape shape-2"></div>
+            <div class="flash-bg-shape shape-3"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flash-content-app">
+            <!-- Animated Logo -->
+            <div class="flash-logo-app">
+                <div class="logo-circle">
+                    <div class="logo-inner">
+                        <i class="fa-brands fa-java"></i>
+                    </div>
+                </div>
+                <div class="logo-pulse"></div>
+            </div>
+
+            <!-- Name with animated letters -->
+            <div class="flash-name-app">
+                <span class="letter">P</span>
+                <span class="letter">R</span>
+                <span class="letter">A</span>
+                <span class="letter">V</span>
+                <span class="letter">E</span>
+                <span class="letter">E</span>
+                <span class="letter">N</span>
+                <span class="letter-space"></span>
+                <span class="letter">A</span>
+                <span class="letter">V</span>
+                <span class="letter">A</span>
+                <span class="letter">S</span>
+                <span class="letter">T</span>
+                <span class="letter">H</span>
+                <span class="letter">I</span>
+            </div>
+
+            <!-- Professional Title -->
+            <div class="flash-title-app">
+                <span class="title-text">Blockchain & Java Architect</span>
+                <div class="title-line"></div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="flash-progress">
+                <div class="progress-bar"></div>
+                <div class="progress-percent" id="progressPercent">0%</div>
+            </div>
+
+            <!-- Loading Status -->
+            <div class="flash-status" id="flashStatus">
+                <i class="fas fa-code"></i>
+                <span>Initializing modules...</span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <!-- Particle Canvas Background -->
 <canvas id="particle-canvas"></canvas>
 
@@ -40,7 +104,7 @@
     <div class="container hero-container">
         <div class="hero-content">
         <span class="hero-badge">
-          <i class="fas fa-code"></i> B.Tech IoT with Blockchain · 2027
+          <i class="fa-brands fa-java"></i> B.Tech IoT with Blockchain · 2027
         </span>
             <h1 class="hero-name">Praveen Avasthi</h1>
             <div class="typed-container">
@@ -58,7 +122,7 @@
                 <a href="#contact" class="btn btn-outline">
                     <i class="fas fa-paper-plane"></i> Contact Me
                 </a>
-                <a href="https://postimg.cc/m1GC6tCd"
+                <a href="https://drive.google.com/file/d/1c-OyflPj8GxIlaQxKbNjkYRCODDqcCkV/view?usp=drivesdk"
                    class="btn btn-outline"
                    download="Praveen_avasthi_resume.pdf">
                     <i class="fas fa-download"></i> Download Resume
@@ -84,7 +148,7 @@
             <div class="about-text">
                 <p>
                     I'm a student developer with a deep curiosity for how things work under the hood —
-                    from low-level system behavior to decentralized ledger mechanics. Currently pursuing
+                    from low-level system behavior to decentralized ledger mechanics. Currently, pursuing
                     Computer Science (IoT & Blockchain) at Sagar Institute of Research & Technology, Bhopal.
                 </p>
                 <p>
@@ -128,6 +192,13 @@
     <div class="container">
         <h2 class="section-title">Technical Arsenal</h2>
 
+        <!-- Skill Description Panel -->
+        <div class="skill-description-panel" id="skillDescriptionPanel">
+            <div class="skill-description-content">
+                <h4 id="skillName"><i class="fas fa-lightbulb"></i> Explore My Skills</h4>
+                <p id="skillDescription">Click on any skill to see detailed information about my experience and expertise.</p>
+            </div>
+        </div>
 
         <!-- Programming & Development -->
         <div class="skill-category">
@@ -136,28 +207,28 @@
             </h3>
             <div class="skill-grid">
                 <div class="skill-item interactive-skill"
-                     data-skill-name="java"
-                     data-skill-description="Experienced in Java for backend development, object-oriented programming, and building scalable applications. Used in academic projects and personal coding practice.">
+                     data-skillName="Java"
+                     data-skillDesc="Experienced in Java for backend development, object-oriented programming, and building scalable applications. Used in academic projects and personal coding practice.">
                     <i class="fab fa-java"></i> Java
                 </div>
                 <div class="skill-item interactive-skill"
-                     data-skill-name="dsa"
-                     data-skill-description="Strong foundation in Data Structures & Algorithms. Regular problem-solving on platforms like LeetCode and HackerRank. Experience with arrays, linked lists, trees, graphs, and dynamic programming.">
+                     data-skillName="DSA"
+                     data-skillDesc="Strong foundation in Data Structures & Algorithms. Regular problem-solving on platforms like LeetCode and HackerRank. Experience with arrays, linked lists, trees, graphs, and dynamic programming.">
                     <i class="fas fa-code-branch"></i> DSA
                 </div>
                 <div class="skill-item interactive-skill"
-                     data-skill-name="oop"
-                     data-skill-description="Deep understanding of Object-Oriented Programming concepts including encapsulation, inheritance, polymorphism, and abstraction. Applied in all Java projects.">
+                     data-skillName="OOP"
+                     data-skillDesc="Deep understanding of Object-Oriented Programming concepts including encapsulation, inheritance, polymorphism, and abstraction. Applied in all Java projects.">
                     <i class="fas fa-cubes"></i> OOP
                 </div>
                 <div class="skill-item interactive-skill"
-                     data-skill-name="springboot"
-                     data-skill-description="Learning Spring Boot for building production-ready REST APIs. Familiar with dependency injection, MVC architecture, and basic security configurations.">
+                     data-skillName="Spring Boot"
+                     data-skillDesc="Learning Spring Boot for building production-ready REST APIs. Familiar with dependency injection, MVC architecture, and basic security configurations.">
                     <i class="fas fa-leaf"></i> Spring Boot
                 </div>
                 <div class="skill-item interactive-skill"
-                     data-skill-name="restapis"
-                     data-skill-description="Experience designing and implementing RESTful APIs. Understanding of HTTP methods, status codes, and API documentation best practices.">
+                     data-skillName="REST APIs"
+                     data-skillDesc="Experience designing and implementing RESTful APIs. Understanding of HTTP methods, status codes, and API documentation best practices.">
                     <i class="fas fa-exchange-alt"></i> REST APIs
                 </div>
             </div>
@@ -169,22 +240,34 @@
                 <i class="fas fa-link"></i> Blockchain Development
             </h3>
             <div class="skill-grid">
-                <div class="skill-item interactive-skill" data-skill-name="blockchain" data-skill-description="Understanding of blockchain fundamentals including distributed ledgers, consensus mechanisms, cryptographic hashing, and immutability.">
-                    <i class="fas fa-cube"></i> Blockchain
+                <div class="skill-item interactive-skill"
+                     data-skillName="Blockchain"
+                     data-skillDesc="Understanding of blockchain fundamentals including distributed ledgers, consensus mechanisms, cryptographic hashing, and immutability.">
+                    <i class="fas fa-link"></i> Blockchain
                 </div>
-                <div class="skill-item interactive-skill" data-skill-name="solidity" data-skil-description="Proficient in writing smart contracts using Solidity. Experience with data types, functions, modifiers, events, and error handling.">
+                <div class="skill-item interactive-skill"
+                     data-skillName="Solidity"
+                     data-skillDesc="Proficient in writing smart contracts using Solidity. Experience with data types, functions, modifiers, events, and error handling.">
                     <i class="fas fa-file-code"></i> Solidity
                 </div>
-                <div class="skill-item interactive-skill" data-skill-name="smartcontracts" data-skill-description="Developed multiple smart contracts for voting systems and token creation. Understanding of contract deployment, testing, and security best practices.">
+                <div class="skill-item interactive-skill"
+                     data-skillName="Smart Contracts"
+                     data-skillDesc="Developed multiple smart contracts for voting systems and token creation. Understanding of contract deployment, testing, and security best practices.">
                     <i class="fas fa-file-contract"></i> Smart Contracts
                 </div>
-                <div class="skill-item interactive-skill" data-skill-name="ethereum" data-skill-description="Working knowledge of Ethereum blockchain, gas optimization, and interaction with Ethereum networks (testnets and mainnet).">
+                <div class="skill-item interactive-skill"
+                     data-skillName="Ethereum"
+                     data-skillDesc="Working knowledge of Ethereum blockchain, gas optimization, and interaction with Ethereum networks (testnets and mainnet).">
                     <i class="fab fa-ethereum"></i> Ethereum
                 </div>
-                <div class="skill-item interactive-skill" data-skill-name="truffle" data-skill-description="Experience using Truffle suite for smart contract development, testing, and deployment. Familiar with migration scripts and network configuration.">
+                <div class="skill-item interactive-skill"
+                     data-skillName="Truffle"
+                     data-skillDesc="Experience using Truffle suite for smart contract development, testing, and deployment. Familiar with migration scripts and network configuration.">
                     <i class="fas fa-tools"></i> Truffle
                 </div>
-                <div class="skill-item interactive-skill" data-skill-name="web3js" data-skill-description="Basic knowledge of Web3.js for interacting with Ethereum blockchain from web applications. Can connect wallets and call contract functions.">
+                <div class="skill-item interactive-skill"
+                     data-skillName="Web3.js"
+                     data-skillDesc="Basic knowledge of Web3.js for interacting with Ethereum blockchain from web applications. Can connect wallets and call contract functions.">
                     <i class="fab fa-js"></i> Web3.js
                 </div>
             </div>
@@ -196,16 +279,24 @@
                 <i class="fas fa-database"></i> Databases
             </h3>
             <div class="skill-grid">
-                <div class="skill-item interactive-skill" data-skill="mysql" data-description="Experience with MySQL for relational database design, complex queries, joins, and database normalization. Used in academic projects.">
+                <div class="skill-item interactive-skill"
+                     data-skillName="MySQL"
+                     data-skillDesc="Experience with MySQL for relational database design, complex queries, joins, and database normalization. Used in academic projects.">
                     <i class="fas fa-database"></i> MySQL
                 </div>
-                <div class="skill-item interactive-skill" data-skill="postgresql" data-description="Familiar with PostgreSQL features including advanced data types, indexing, and JSON support. Learning for backend integration.">
+                <div class="skill-item interactive-skill"
+                     data-skillName="PostgreSQL"
+                     data-skillDesc="Familiar with PostgreSQL features including advanced data types, indexing, and JSON support. Learning for backend integration.">
                     <i class="fas fa-database"></i> PostgreSQL
                 </div>
-                <div class="skill-item interactive-skill" data-skill="dbms" data-description="Strong understanding of Database Management Systems concepts including ACID properties, transactions, concurrency control, and recovery.">
+                <div class="skill-item interactive-skill"
+                     data-skillName="DBMS Concepts"
+                     data-skillDesc="Strong understanding of Database Management Systems concepts including ACID properties, transactions, concurrency control, and recovery.">
                     <i class="fas fa-server"></i> DBMS Concepts
                 </div>
-                <div class="skill-item interactive-skill" data-skill="dbdesign" data-description="Experience designing normalized database schemas, ER diagrams, and optimizing queries for performance and data integrity.">
+                <div class="skill-item interactive-skill"
+                     data-skillName="Database Design"
+                     data-skillDesc="Experience designing normalized database schemas, ER diagrams, and optimizing queries for performance and data integrity.">
                     <i class="fas fa-layer-group"></i> Database Design
                 </div>
             </div>
@@ -217,16 +308,24 @@
                 <i class="fas fa-tools"></i> Tech Stack & Tools
             </h3>
             <div class="skill-grid">
-                <div class="skill-item interactive-skill" data-skill="intellij" data-description="Primary IDE for Java development. Comfortable with debugging, version control integration, and productivity plugins.">
+                <div class="skill-item interactive-skill"
+                     data-skillName="IntelliJ IDEA"
+                     data-skillDesc="Primary IDE for Java development. Comfortable with debugging, version control integration, and productivity plugins.">
                     <i class="fas fa-code"></i> IntelliJ IDEA
                 </div>
-                <div class="skill-item interactive-skill" data-skill="remix" data-description="Used Remix IDE for smart contract development, testing, and deployment. Familiar with its debugging and analysis tools.">
+                <div class="skill-item interactive-skill"
+                     data-skillName="Remix IDE"
+                     data-skillDesc="Used Remix IDE for smart contract development, testing, and deployment. Familiar with its debugging and analysis tools.">
                     <i class="fas fa-bolt"></i> Remix IDE
                 </div>
-                <div class="skill-item interactive-skill" data-skill="metamask" data-description="Experience using MetaMask for wallet management, network switching, and interacting with decentralized applications.">
+                <div class="skill-item interactive-skill"
+                     data-skillName="MetaMask"
+                     data-skillDesc="Experience using MetaMask for wallet management, network switching, and interacting with decentralized applications.">
                     <i class="fas fa-wallet"></i> MetaMask
                 </div>
-                <div class="skill-item interactive-skill" data-skill="ganache" data-description="Used Ganache for local blockchain simulation during smart contract development and testing phases.">
+                <div class="skill-item interactive-skill"
+                     data-skillName="Ganache"
+                     data-skillDesc="Used Ganache for local blockchain simulation during smart contract development and testing phases.">
                     <i class="fas fa-link"></i> Ganache
                 </div>
             </div>
@@ -238,22 +337,34 @@
                 <i class="fas fa-brain"></i> Core Competencies
             </h3>
             <div class="skill-grid">
-                <div class="skill-item interactive-skill competency" data-skill="problemsolving" data-description="Analytical approach to breaking down complex problems into manageable components. Regular practice on coding platforms.">
+                <div class="skill-item interactive-skill competency"
+                     data-skillName="Problem Solving"
+                     data-skillDesc="Analytical approach to breaking down complex problems into manageable components. Regular practice on coding platforms.">
                     Problem Solving
                 </div>
-                <div class="skill-item interactive-skill competency" data-skill="analytical" data-description="Ability to analyze requirements, identify patterns, and make data-driven decisions in project development.">
+                <div class="skill-item interactive-skill competency"
+                     data-skillName="Analytical Thinking"
+                     data-skillDesc="Ability to analyze requirements, identify patterns, and make data-driven decisions in project development.">
                     Analytical Thinking
                 </div>
-                <div class="skill-item interactive-skill competency" data-skill="teamwork" data-description="Experience collaborating on group projects, participating in hackathons, and contributing to team discussions.">
+                <div class="skill-item interactive-skill competency"
+                     data-skillName="Teamwork"
+                     data-skillDesc="Experience collaborating on group projects, participating in hackathons, and contributing to team discussions.">
                     Teamwork
                 </div>
-                <div class="skill-item interactive-skill competency" data-skill="leadership" data-description="Led small project teams, coordinated tasks, and mentored juniors in coding concepts and best practices.">
+                <div class="skill-item interactive-skill competency"
+                     data-skillName="Leadership"
+                     data-skillDesc="Led small project teams, coordinated tasks, and mentored juniors in coding concepts and best practices.">
                     Leadership
                 </div>
-                <div class="skill-item interactive-skill competency" data-skill="timemanagement" data-description="Effective at balancing academic work, project development, and skill learning through proper prioritization.">
+                <div class="skill-item interactive-skill competency"
+                     data-skillName="Time Management"
+                     data-skillDesc="Effective at balancing academic work, project development, and skill learning through proper prioritization.">
                     Time Management
                 </div>
-                <div class="skill-item interactive-skill competency" data-skill="adaptability" data-description="Quick learner who adapts to new technologies and frameworks. Comfortable with changing project requirements.">
+                <div class="skill-item interactive-skill competency"
+                     data-skillName="Adaptability"
+                     data-skillDesc="Quick learner who adapts to new technologies and frameworks. Comfortable with changing project requirements.">
                     Adaptability
                 </div>
             </div>
@@ -269,25 +380,28 @@
             <!-- Project 1 -->
             <div class="project-card">
                 <div class="project-icon">
-                    <i class="fas fa-microchip"></i>
+                    <i class="fas fa-robot"></i>
                 </div>
-                <h3 class="project-title">IoT Based Home Automation System</h3>
+                <h3 class="project-title">AI Powered post-discharge Medicine follow-Up Voice agent </h3>
                 <div class="project-tags">
-                    <span>IoT</span>
-                    <span>Embedded Systems</span>
-                    <span>Sensors</span>
+                    <span>OpenAI API</span>
+                    <span>Python</span>
+                    <span>stream-lit</span>
+                    <span>Twilio webhook</span>
+                    <span>postgre SQl</span>
+                    <span>JS</span>
                 </div>
                 <p class="project-description">
-                    Developed a smart home automation system capable of controlling appliances remotely.
-                    Implemented device communication for real-time monitoring. Designed scalable architecture
-                    capable of handling multiple connected devices.
+                    Build a post-discharge medicine reminder and health follow-Up voice assistant which helps to take care after
+                    discharge from hospital and give medicine reminder automatically or manually. Also ask 14 healthcare
+                    questions and save data in the database. If emergency escalate doctor will be noticed via notification.
                 </p>
             </div>
 
             <!-- Project 2 -->
             <div class="project-card">
                 <div class="project-icon">
-                    <i class="fas fa-vote-yea"></i>
+                    <i class="fas fa-chain"></i>
                 </div>
                 <h3 class="project-title">Blockchain Based Voting System</h3>
                 <div class="project-tags">
@@ -305,17 +419,18 @@
             <!-- Project 3 -->
             <div class="project-card">
                 <div class="project-icon">
-                    <i class="fas fa-boxes"></i>
+                    <i class="fas fa-microchip"></i>
                 </div>
-                <h3 class="project-title">Supply Chain DApp (In Development)</h3>
+                <h3 class="project-title">IoT Based Home Automation System</h3>
                 <div class="project-tags">
-                    <span>Ethereum</span>
-                    <span>Web3.js</span>
-                    <span>React</span>
+                    <span>IoT</span>
+                    <span>Embedded Systems</span>
+                    <span>Sensors</span>
                 </div>
                 <p class="project-description">
-                    Building a decentralized supply chain tracking system using smart contracts
-                    for transparent product journey records. Integrating with IPFS for document storage.
+                    Developed a smart home automation system capable of controlling appliances remotely.
+                    Implemented device communication for real-time monitoring. Designed scalable architecture
+                    capable of handling multiple connected devices.
                 </p>
             </div>
         </div>
@@ -337,7 +452,7 @@
                     <p>
                         Focused on building academic and personal technology projects. Actively learning
                         and applying Java backend development, blockchain programming, and algorithmic
-                        problem solving. Interested in opportunities in software development and
+                        problem-solving. Interested in opportunities in software development and
                         blockchain development.
                     </p>
                 </div>
