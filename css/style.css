@@ -541,6 +541,11 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.hero-name:hover {
+transition: all 0.3s ease-in-out;
+  color: #AD93FF
+}
+
 .typed-container {
   font-size: 1.8rem;
   font-weight: 500;
