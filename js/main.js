@@ -27,11 +27,11 @@ function initTypedAnimation() {
     if (typeof Typed !== 'undefined') {
         new Typed('#typed-element', {
             strings: [
-                '{Blockchain and Backend',
+                '{Backend Developer',
                 '{Java and DSA Enthusiast',
                 '{IoT Engineering Student',
-                '{Smart Contract Developer',
-                '{Decentralized App Builder'
+                '{Blockchain Technology',
+                '{Frontend Developer'
             ],
             typeSpeed: 30,
             backSpeed: 20,
