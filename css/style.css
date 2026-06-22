@@ -691,7 +691,6 @@ transition: all 0.3s ease-in-out;
 .about-section {
   padding: 5rem 0;
   background: rgba(17, 20, 28, 0.6);
-  background-image: url('../assets/Adobe Express - file.png');
   backdrop-filter: blur(5px);
 }
 
