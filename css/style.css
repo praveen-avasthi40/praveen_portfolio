@@ -502,6 +502,20 @@ body {
   min-height: 90vh;
   display: flex;
   align-items: center;
+  position: relative;
+  background-image: url('../assets/hero-backgroung-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 12, 16, 0.72);
+  pointer-events: none;
 }
 
 .hero-container {
@@ -509,6 +523,8 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content {
@@ -636,6 +652,26 @@ transition: all 0.3s ease-in-out;
   transform: scale(1.02);
 }
 
+.hero-extra-image {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.hero-visual-image {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hero-visual-image:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(95, 108, 255, 0.25);
+}
+
 /* ===== SECTION TITLES ===== */
 .section-title {
   font-size: 2.8rem;
@@ -655,6 +691,7 @@ transition: all 0.3s ease-in-out;
 .about-section {
   padding: 5rem 0;
   background: rgba(17, 20, 28, 0.6);
+  background-image: url('../assets/Adobe Express - file.png');
   backdrop-filter: blur(5px);
 }
 
