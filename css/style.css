@@ -1,4 +1,4 @@
-/* ===== VARIABLES ===== */
+
 :root {
   --primary-color: #5f6cff;
   --secondary-color: #bb9aff;
@@ -21,7 +21,7 @@
   --shadow-hover: 0 20px 40px -15px rgba(95, 108, 255, 0.3);
 }
 
-/* ===== PROFESSIONAL APP-STYLE FLASH SCREEN ===== */
+
 .flash-screen {
     position: fixed;
     top: 0;
@@ -50,7 +50,7 @@
     z-index: 10;
 }
 
-/* Animated Background Shapes */
+
 .flash-bg {
     position: absolute;
     top: 0;
@@ -97,7 +97,7 @@
     animation-delay: 10s;
 }
 
-/* Logo Animation */
+
 .flash-logo-app {
     position: relative;
     width: 120px;
@@ -147,7 +147,7 @@
     animation: logoPulse 1.5s ease-in-out infinite;
 }
 
-/* Animated Name */
+
 .flash-name-app {
     text-align: center;
     margin-bottom: 1rem;
@@ -173,7 +173,7 @@
     width: 10px;
 }
 
-/* Staggered letter animations */
+
 .letter:nth-child(1) { animation-delay: 0.05s, 0.05s; }
 .letter:nth-child(2) { animation-delay: 0.1s, 0.1s; }
 .letter:nth-child(3) { animation-delay: 0.15s, 0.15s; }
@@ -190,7 +190,7 @@
 .letter:nth-child(14) { animation-delay: 0.7s, 0.7s; }
 .letter:nth-child(15) { animation-delay: 0.75s, 0.75s; }
 
-/* Professional Title */
+
 .flash-title-app {
     text-align: center;
     margin: 1.5rem 0 2rem;
@@ -214,7 +214,7 @@
     animation: lineExpand 2s ease-in-out infinite;
 }
 
-/* Progress Bar */
+
 .flash-progress {
     margin: 2rem 0;
     position: relative;
@@ -251,7 +251,7 @@
     font-family: var(--font-mono);
 }
 
-/* Status Message */
+
 .flash-status {
     text-align: center;
     margin: 1.5rem 0;
@@ -277,7 +277,7 @@
     font-family: var(--font-mono);
 }
 
-/* Version */
+
 .flash-version {
     text-align: center;
     font-size: 0.7rem;
@@ -286,7 +286,7 @@
     margin-top: 2rem;
 }
 
-/* Animations */
+
 @keyframes logoRotate {
     0%, 100% { transform: rotate(0deg); }
     25% { transform: rotate(5deg); }
@@ -358,7 +358,7 @@
     }
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .flash-name-app {
         font-size: 1.5rem;
@@ -378,7 +378,7 @@
     }
 }
 
-/* ===== RESET & BASE ===== */
+
 * {
   margin: 0;
   padding: 0;
@@ -398,7 +398,7 @@ body {
   position: relative;
 }
 
-/* ===== BACKGROUND CANVAS ===== */
+
 #particle-canvas {
   position: fixed;
   top: 0;
@@ -410,14 +410,14 @@ body {
   opacity: 20;
 }
 
-/* ===== CONTAINER ===== */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* ===== NAVIGATION ===== */
+
 .navbar {
   background: rgba(10, 12, 16, 0.85);
   backdrop-filter: blur(12px);
@@ -496,7 +496,7 @@ body {
   z-index: 1001;
 }
 
-/* ===== HERO SECTION ===== */
+
 .hero-section {
   padding: 6rem 0 4rem;
   min-height: 90vh;
@@ -672,7 +672,7 @@ transition: all 0.3s ease-in-out;
   box-shadow: 0 25px 60px rgba(95, 108, 255, 0.25);
 }
 
-/* ===== SECTION TITLES ===== */
+
 .section-title {
   font-size: 2.8rem;
   font-weight: 700;
@@ -687,7 +687,7 @@ transition: all 0.3s ease-in-out;
   padding-left: 1.5rem;
 }
 
-/* ===== ABOUT SECTION ===== */
+
 .about-section {
   padding: 5rem 0;
   background: rgba(17, 20, 28, 0.6);
@@ -798,7 +798,7 @@ transition: all 0.3s ease-in-out;
   color: var(--primary-color);
 }
 
-/* ===== SKILLS SECTION ===== */
+
 .skills-section {
   padding: 5rem 0;
 }
@@ -857,7 +857,7 @@ transition: all 0.3s ease-in-out;
   background: rgba(95, 108, 255, 0.05);
 }
 
-/* ===== PROJECTS SECTION ===== */
+
 .projects-section {
   padding: 5rem 0;
   background: rgba(17, 20, 28, 0.6);
@@ -928,7 +928,7 @@ transition: all 0.3s ease-in-out;
   flex-grow: 1;
 }
 
-/* ===== EXPERIENCE SECTION ===== */
+
 .experience-section {
   padding: 5rem 0;
 }
@@ -996,7 +996,7 @@ transition: all 0.3s ease-in-out;
   line-height: 1.7;
 }
 
-/* ===== CONTACT SECTION ===== */
+
 .contact-section {
   padding: 5rem 0;
   background: rgba(17, 20, 28, 0.6);
@@ -1133,7 +1133,7 @@ transition: all 0.3s ease-in-out;
   box-shadow: 0 10px 25px -5px var(--primary-color);
 }
 
-/* ===== FOOTER ===== */
+
 .footer {
   padding: 2rem 0;
   text-align: center;
@@ -1141,7 +1141,7 @@ transition: all 0.3s ease-in-out;
   color: var(--text-secondary);
 }
 
-/* ===== ANIMATIONS ===== */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1162,7 +1162,7 @@ transition: all 0.3s ease-in-out;
   }
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+
 @media screen and (max-width: 1024px) {
   .hero-name {
     font-size: 3.2rem;
@@ -1315,7 +1315,7 @@ transition: all 0.3s ease-in-out;
     cursor: not-allowed;
 }
 
-/* ===== SKILL DESCRIPTION PANEL ===== */
+
 .skill-description-panel {
     background: linear-gradient(145deg, #1a1f2e, #131826);
     border: 1px solid var(--border-color);
@@ -1352,7 +1352,7 @@ transition: all 0.3s ease-in-out;
     margin: 0;
 }
 
-/* ===== INTERACTIVE SKILL ITEMS ===== */
+
 .skill-item.interactive-skill {
     cursor: pointer;
     position: relative;
@@ -1401,7 +1401,7 @@ transition: all 0.3s ease-in-out;
     }
 }
 
-/* Responsive adjustments */
+
 @media screen and (max-width: 768px) {
     .skill-description-panel {
         padding: 1.5rem;
@@ -1416,11 +1416,11 @@ transition: all 0.3s ease-in-out;
     }
 
     .skill-item.interactive-skill[data-description]:hover::before {
-        display: none; /* Hide tooltips on mobile */
+        display: none; 
     }
 }
 
-/* Animation for description panel */
+
 @keyframes panelGlow {
     100% {
         border-left-color: var(--primary-color);
@@ -1437,4 +1437,6 @@ transition: all 0.3s ease-in-out;
 .skill-description-panel.updated {
     animation: panelGlow 0.5s ease;
 }
+
+
 
