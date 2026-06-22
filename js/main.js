@@ -1,4 +1,3 @@
-// Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
 
     initFlashScreen();
@@ -10,19 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
     initActiveNavOnScroll();
     initInteractiveSkills();
 
-    // Initialize EmailJS first
     initEmailJS();
 
-    // Then initialize contact form with EmailJS
     initEmailJSContactForm();
 
-    // Initialize resume download
     initResumeDownload();
 
     initClickAnimation();
 });
 
-// ===== TYPED.JS ANIMATION =====
+
 function initTypedAnimation() {
     if (typeof Typed !== 'undefined') {
         new Typed('#typed-element', {
@@ -45,7 +41,7 @@ function initTypedAnimation() {
     }
 }
 
-// ===== PARTICLE BACKGROUND =====
+
 function initParticleBackground() {
     const canvas = document.getElementById('particle-canvas');
     if (!canvas) return;
@@ -119,7 +115,7 @@ function initParticleBackground() {
     drawParticles();
 }
 
-// ===== MOBILE MENU =====
+
 function initMobileMenu() {
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
@@ -149,7 +145,7 @@ function initMobileMenu() {
     });
 }
 
-// ===== SMOOTH SCROLL =====
+
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -169,7 +165,7 @@ function initSmoothScroll() {
     });
 }
 
-// ===== ACTIVE NAV LINK ON SCROLL =====
+
 function initActiveNavOnScroll() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -197,9 +193,8 @@ function initActiveNavOnScroll() {
     });
 }
 
-// ===== EMAIL JS INITIALIZATION =====
+
 function initEmailJS() {
-    // Check if EmailJS is loaded
     if (typeof emailjs !== 'undefined') {
         emailjs.init("Bg2qGe2VeoFXg2Uwd"); // Your Public Key
         console.log('EmailJS initialized successfully');
@@ -208,31 +203,26 @@ function initEmailJS() {
     }
 }
 
-// ===== EMAIL JS CONTACT FORM =====
+
 function initEmailJSContactForm() {
     const contactForm = document.getElementById('contactForm');
     if (!contactForm) return;
 
-    // Remove any existing event listeners by cloning and replacing
     const newForm = contactForm.cloneNode(true);
     contactForm.parentNode.replaceChild(newForm, contactForm);
 
-    // Add new submit event listener
     newForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
         const submitBtn = document.getElementById('submitBtn');
         const formStatus = document.getElementById('formStatus');
 
-        // Store original button text
         const originalBtnText = submitBtn.innerHTML;
 
-        // Get form data
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
 
-        // Validation
         if (!name || !email || !message) {
             showFormStatus(formStatus, 'error', 'Please fill in all fields');
             return;
@@ -243,12 +233,10 @@ function initEmailJSContactForm() {
             return;
         }
 
-        // Show loading state
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         formStatus.style.display = 'none';
 
-        // EmailJS parameters
         const templateParams = {
             from_name: name,
             from_email: email,
@@ -257,26 +245,21 @@ function initEmailJSContactForm() {
             reply_to: email
         };
 
-        // Send email using EmailJS
         if (typeof emailjs !== 'undefined') {
             emailjs.send('service_qfc17ib', 'template_e1dduda', templateParams)
                 .then(function(response) {
                     console.log('EmailJS Success:', response);
 
-                    // Success message
                     showFormStatus(formStatus, 'success', 'Message sent successfully! I\'ll get back to you soon.');
 
-                    // Reset form
                     newForm.reset();
                 })
                 .catch(function(error) {
                     console.error('EmailJS Error:', error);
 
-                    // Error message
                     showFormStatus(formStatus, 'error', 'Failed to send. Please try again or email me directly.');
                 })
                 .finally(function() {
-                    // Reset button
                     submitBtn.innerHTML = originalBtnText;
                     submitBtn.disabled = false;
                 });
@@ -288,7 +271,7 @@ function initEmailJSContactForm() {
     });
 }
 
-// ===== FORM STATUS HELPER =====
+
 function showFormStatus(statusElement, type, message) {
     if (!statusElement) return;
 
@@ -296,7 +279,6 @@ function showFormStatus(statusElement, type, message) {
     statusElement.className = `form-status ${type}`;
     statusElement.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i> ${message}`;
 
-    // Auto hide after 5 seconds for success
     if (type === 'success') {
         setTimeout(() => {
             statusElement.style.display = 'none';
@@ -304,13 +286,13 @@ function showFormStatus(statusElement, type, message) {
     }
 }
 
-// ===== EMAIL VALIDATION =====
+
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
-// ===== RESUME DOWNLOAD =====
+
 function initResumeDownload() {
     const resumeLinks = document.querySelectorAll('a[download]');
 
@@ -321,11 +303,9 @@ function initResumeDownload() {
             const href = this.getAttribute('href');
             const fileName = this.getAttribute('download');
 
-            // Check if file exists
             fetch(href, { method: 'HEAD' })
                 .then(response => {
                     if (response.ok) {
-                        // File exists, trigger download
                         const link = document.createElement('a');
                         link.href = href;
                         link.download = fileName;
@@ -333,30 +313,25 @@ function initResumeDownload() {
                         link.click();
                         document.body.removeChild(link);
 
-                        // Show success notification
                         showCustomNotification('Resume download started!', 'success');
                     } else {
-                        // File not found
                         showCustomNotification('Resume file not found. Please try again later.', 'error');
                     }
                 })
                 .catch(() => {
-                    // Fallback - try direct download
                     window.location.href = href;
                 });
         });
     });
 }
 
-// ===== CUSTOM NOTIFICATION SYSTEM =====
+
 function showCustomNotification(message, type = 'info') {
-    // Remove existing notification
     const existingNotification = document.querySelector('.custom-notification');
     if (existingNotification) {
         existingNotification.remove();
     }
 
-    // Create notification
     const notification = document.createElement('div');
     notification.className = `custom-notification ${type}`;
     notification.innerHTML = `
@@ -366,7 +341,6 @@ function showCustomNotification(message, type = 'info') {
         </div>
     `;
 
-    // Add styles
     notification.style.position = 'fixed';
     notification.style.bottom = '20px';
     notification.style.right = '20px';
@@ -380,7 +354,6 @@ function showCustomNotification(message, type = 'info') {
 
     document.body.appendChild(notification);
 
-    // Remove after 3 seconds
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.3s ease';
         setTimeout(() => {
@@ -391,7 +364,7 @@ function showCustomNotification(message, type = 'info') {
     }, 3000);
 }
 
-// ===== PROFILE IMAGE FALLBACK =====
+
 const profileImage = document.getElementById('profileImage');
 if (profileImage) {
     profileImage.onerror = function() {
@@ -399,9 +372,8 @@ if (profileImage) {
     };
 }
 
-// ===== ADD NOTIFICATION ANIMATIONS =====
+
 (function addNotificationStyles() {
-    // Check if styles already exist
     if (document.getElementById('notification-styles')) return;
 
     const style = document.createElement('style');
@@ -436,7 +408,7 @@ if (profileImage) {
     document.head.appendChild(style);
 })();
 
-// ===== INTERACTIVE SKILL DESCRIPTIONS =====
+
 function initInteractiveSkills() {
     const skillItems = document.querySelectorAll('.interactive-skill');
     const skillNameEl = document.getElementById('skillName');
@@ -446,7 +418,6 @@ function initInteractiveSkills() {
     if (!skillItems.length || !skillNameEl || !skillDescEl) return;
 
     function updateSkillDescription(skillItem) {
-        // Sirf data-skillName aur data-skillDesc use karo
         const skillName = skillItem.getAttribute('data-skillName') || skillItem.textContent.trim();
         const skillDesc = skillItem.getAttribute('data-skillDesc') || 'No description available.';
 
@@ -462,7 +433,6 @@ function initInteractiveSkills() {
         skillItem.classList.add('active-skill');
     }
 
-    // Click events
     skillItems.forEach(item => {
         item.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -470,7 +440,6 @@ function initInteractiveSkills() {
         });
     });
 
-    // Reset on outside click
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.interactive-skill') && !e.target.closest('#skillDescriptionPanel')) {
             skillNameEl.innerHTML = '<i class="fas fa-lightbulb"></i> Explore My Skills';
@@ -480,11 +449,10 @@ function initInteractiveSkills() {
     });
 }
 
-// ===== CLICK ANIMATION - CIRCLE POPUP =====
+
 function initClickAnimation() {
     console.log("Click animation initialized");
 
-    // Create style for animation
     const style = document.createElement('style');
     style.textContent = `
         .click-circle {
@@ -517,25 +485,19 @@ function initClickAnimation() {
     `;
     document.head.appendChild(style);
 
-    // Add click event listener to entire document
     document.addEventListener('click', function(e) {
-        // Don't show on buttons, links, or skill items (optional)
         if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.btn')) {
-            return; // Remove this line if you want animation on buttons too
+            return; 
         }
 
-        // Create circle element
         const circle = document.createElement('div');
         circle.className = 'click-circle';
 
-        // Position at click coordinates
         circle.style.left = e.clientX + 'px';
         circle.style.top = e.clientY + 'px';
 
-        // Add to body
         document.body.appendChild(circle);
 
-        // Remove after animation completes
         setTimeout(() => {
             if (circle.parentNode) {
                 circle.remove();
@@ -544,7 +506,7 @@ function initClickAnimation() {
     });
 }
 
-// ===== PROFESSIONAL FLASH SCREEN =====
+
 function initFlashScreen() {
     const flashScreen = document.getElementById('flashScreen');
     const statusElement = document.getElementById('flashStatus');
@@ -552,7 +514,6 @@ function initFlashScreen() {
 
     if (!flashScreen) return;
 
-    // Status messages array
     const statusMessages = [
         { text: "Loading modules...", icon: "fa-cube" },
         { text: "Initializing blockchain...", icon: "fa-link" },
@@ -564,7 +525,6 @@ function initFlashScreen() {
     let currentIndex = 0;
     let progress = 0;
 
-    // Update status message every 500ms
     const statusInterval = setInterval(() => {
         if (currentIndex < statusMessages.length) {
             const msg = statusMessages[currentIndex];
@@ -573,7 +533,6 @@ function initFlashScreen() {
         }
     }, 500);
 
-    // Update progress percentage
     const progressInterval = setInterval(() => {
         progress += Math.random() * 15;
         if (progress >= 100) {
@@ -581,7 +540,6 @@ function initFlashScreen() {
             clearInterval(progressInterval);
             clearInterval(statusInterval);
 
-            // Final status
             statusElement.innerHTML = '<i class="fas fa-check-circle"></i><span>Ready to go!</span>';
         }
 
@@ -590,7 +548,6 @@ function initFlashScreen() {
         }
     }, 150);
 
-    // Hide flash screen after 3 seconds
     setTimeout(() => {
         flashScreen.classList.add('fade-out');
 
@@ -602,7 +559,6 @@ function initFlashScreen() {
     }, 3000);
 }
 
-// Add click to skip flash screen
 function initSkipFlashScreen() {
     const flashScreen = document.getElementById('flashScreen');
     if (!flashScreen) return;
