@@ -503,11 +503,17 @@ body {
   display: flex;
   align-items: center;
   position: relative;
-  background-image: url('../assets/hero-backgroung-image.png');
+  background-image: url('../assets/hero-background-image.png');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    background-image: url('../assets/hero-background-mobile.png');
+  }
 }
 
 .hero-section::before {
@@ -555,11 +561,13 @@ body {
   background-clip: text;
   color: transparent;
   margin-bottom: 0.5rem;
+  transition: text-shadow 0.3s ease;
 }
 
 .hero-name:hover {
-transition: all 0.3s ease-in-out;
-  color: #AD93FF
+  transition: all 0.3s ease-in-out;
+  color: #AD93FF;
+  text-shadow: 10px 2px 40px rgba(255, 255, 255, 0.6);
 }
 
 .typed-container {
